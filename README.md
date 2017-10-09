@@ -1,1 +1,12 @@
-# PayByVisiting
+# Pay By Visiting
+
+## What is it?
+
+**Pay By Visiting** (PBV) is a project by Nino Filiu where people can pay other persons simply by visiting a website. The principle is simple: Alice visits Bob's site where PBV is implemented. While she is online, her computer is giving away part of its computing power to resolves a problem that interests Bob. Eventhough money is not directly created, both Alice and Bob find two major perks to this implementation:
+
++ **Extreme simplicity**
+Bob simply has to copy-paste a few lines of codes in his website files in order for the whole thing to work - most payment implementations require a deep understanding of server communication to be implemented and are usually not free. Alice doesn't have to enter critical information and simply has to visit a website.
++ **No money involved**
+When raising funds or asking for financiary help, the hardest stage to pass is to go from a "I support you" to "I support you, here is one dollar". With PBV, users are often willing to support a third party because it doesn't feels like any money is being spent.
+
+Many find it quite debatable at first glance how Bob can make actual money out of computing power, but lately
