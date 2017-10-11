@@ -15,4 +15,4 @@ Many find it quite debatable at first glance how Bob can make actual money out o
 
 ## How is the project going?
 
-The project has begun on the 9th of October 2017 - for the moment, nothing is available except for this quick description (/^▽^)/
+The project has begun on the 9th of October 2017 - for the moment, almost nothing is available except for this quick description (/^▽^)/
