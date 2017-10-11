@@ -24,6 +24,7 @@ function nextStr(s){
     }
 }
 
+/* types */
 function work(){
     this.hash;
     this.latest;
@@ -32,13 +33,31 @@ function work(){
     this.try=function(){
         this.latest=nextStr(this.latest);
         this.tries++;
+        D.tried++;
         if (sha256(this.latest)==this.hash){
             this.cracked=true;
+            D.cracked++;
             return true;
         }
         return false;
     }
 }
+function data(){
+    this.tried=0;
+    this.cracked=0;
+    this.lines=[];
+    this.display=function(str){
+        while (this.lines.length>7){
+            this.lines.shift();
+        }
+        this.lines.push(str);
+        document.getElementById("pbv_display").innerHTML="";
+        this.lines.forEach(function(l){
+            document.getElementById("pbv_display").innerHTML+="&gt; "+l+"<br>";
+        });
+    }
+}
+
 function fetchWork(){
     x=new XMLHttpRequest();
     x.onreadystatechange=function(){
@@ -56,21 +75,28 @@ function fetchWork(){
 function sendWork(){
     x.open("POST","pbv/receiver.php",false);
     x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    console.log("hash="+W.hash+"&latest="+W.latest+"&cracked="+W.cracked);
     x.send("hash="+W.hash+"&latest="+W.latest+"&cracked="+W.cracked);
-    console.log(x);
 }
-function displayWork(){
-    document.getElementById("c").innerHTML="hello dude"+Math.random();
+function compute(){
+    console.log(go);
+    if (go){
+        W=new work();
+        D.display("Fetching new work...");
+        fetchWork();
+        D.display("Work fetched: the hash is "+W.hash+" and the latest try is "+W.latest+". Beginning the cracking of the hash...");
+        while (!W.cracked&&W.tries<10000){
+            W.try();
+        }
+        D.display("Work completed: "+W.tries+" attemps at cracking the hash. Sending the work to the server...");
+        sendWork();
+        D.display("Work sent.");
+    }
 }
 
-while(true){
-    W=new work();
-    fetchWork();
-    console.log(W);
-    while (!W.cracked&&W.tries<100000){
-        W.try();
-    }
-    sendWork();
-    displayWork();
-}
+/* main */
+
+go=false;
+D=new data();
+setInterval(compute,1000);
+
+console.log(go);
