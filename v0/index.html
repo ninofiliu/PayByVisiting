@@ -1,0 +1,104 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <style>
+        body {
+            background: linear-gradient(#080,#020);
+            color: white;
+            font-family: "Roboto", sans-serif;
+            text-align: justify;
+        }
+        #content {
+            display: block;
+            margin: auto;
+            width: 100%;
+            max-width: 900px;
+        }
+        h1 {
+            font-family: "Lobster";
+            font-size: 5em;
+        }
+        h3 {
+            font-size: 2em
+        }
+        p {
+            font-size: 1.3em;
+        }
+        a {
+            color: #f00;
+        }
+        
+        .switch {
+            display: block;
+            width: 18rem;
+            margin: auto;
+            background-color: #000;
+            border-radius: 30px;
+            border: 5px solid white;            
+        }
+        .switched {
+            font-size: 2rem;
+            padding: 2rem;
+            border-radius: 30px;
+            width: 10rem;
+            transition: all 500ms;
+        }
+        .switched:hover {
+            cursor: pointer;
+        }
+        .off {
+            background-color: #333;
+            color: #555;
+            margin-left: 0em;
+        }
+        .on {
+            background-color: #f03;
+            color: #fff;
+            margin-left: 2em;
+        }
+        
+        #pbv_display {
+            background-color: #000;
+            color: #0f0;
+            text-shadow: 0 0 0.3em #0f0;
+            padding: 0.5em;
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 1em auto;
+            border-radius: 0.5em;
+            text-align: left;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Hello visitor.</h1>
+        <h3>Simply by being here, you have got the power to help a student earn money without giving any kind of personal information, without watching any ad, and without having to give actual money.</h3>
+        <h3>You only have to turn this switch on.</h3>
+        <div class="switch">
+            <div class="switched off">computing</div>
+        </div>
+        <p id="pbv_display"><br></p>
+        <h3>Here is what happens when you click on the switch.</h3>
+        <p>This website is hosted by a student. Let's call him John Doe. John is studying computer science so he often have to have a whole lot of computing power available - and that can cost a lot. When a visitor turns the switch on, he allows part of his computer's power to be dedicated to John's tasks. Like this, John can save up the money he invested in computing power to buy more useful things like gluten-free avocado toasts.</p>
+        <h3>Find more about the project <a href="https://github.com/ninofiliu/PayByVisiting">here</a>.</h3>
+    </div>
+    
+    <script src="pbv/main.js"></script>
+    <script>
+        s=document.getElementsByClassName("switched")[0];
+        s.onclick=function(){
+            if (s.className=="switched on"){
+                go=false;
+                D.display("Computing stopped.");
+                s.className="switched off";
+            } else {
+                go=true;
+                D.display("Computing started...");
+                s.className="switched on";
+            }
+        }
+    </script>
+</body>
