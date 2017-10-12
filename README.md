@@ -17,4 +17,4 @@ Many find it quite debatable at first glance how Bob can make actual money out o
 
 The project has begun on the 9th of October 2017, so it is not a billion dollar industry yet (/^▽^)/
 
-A first implementation of PBV is available [here](https://ninofiliu.fr/pbv/).!
+However, a first implementation of PBV is available [here](https://ninofiliu.fr/pbv/)!
